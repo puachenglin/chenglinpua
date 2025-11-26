@@ -300,7 +300,12 @@
                         ${album.title}
                     </h4>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        ${(album.items || []).map(url => {
+                        ${(album.items || []).map(item => { // 'item' is now a video object or a photo URL string
+                            
+                            // Helper to get URL and Subtitle, handling both new objects and old strings
+                            const url = typeof item === 'object' && item.url ? item.url : item;
+                            const subtitle = typeof item === 'object' && item.subtitle ? item.subtitle : '';
+            
                             if (album.type === 'video') {
                                 // Assume videos are embed links (YouTube, BiliBili)
                                 let embedUrl = url;
@@ -308,8 +313,10 @@
                                     embedUrl = url.replace('watch?v=', 'embed/');
                                 }
                                 return `
-                                    <div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200">
-                                        <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <div class="space-y-2"> <div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                            <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                        ${subtitle ? `<p class="text-sm text-center text-gray-500">${subtitle}</p>` : ''}
                                     </div>
                                 `;
                             } else {
