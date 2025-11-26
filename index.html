@@ -191,7 +191,7 @@
             // NEW SECTIONS END HERE
             personal_life: [
                 { title: "Japan Kyoto", content: "It was my first time in Japan, and I was incredibly lucky to meet my idol, Jay Chou, while I was there!", images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/jay_chou.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/tokyo_japan.jpg"] },
-                { title: "USA Silicon Valley", content: "Photos from my trip to Silicon Valley, USA, during November 2024.", images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/jay_chou.jpg"] }
+                { title: "USA Silicon Valley", content: "Photos from my trip to Silicon Valley, USA, during November 2024.", images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/silicon_2.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/silicon_1.jpg"] }
             ],
             gallery_albums: [
                 { title: "Amazing Nature", type: "photo", items: ["https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/yiheyuan.jpeg", "https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/travel/me.jpeg"] },
@@ -277,7 +277,7 @@
                     ${topic.image_url ? `
                         <div class="mb-4">
                             <img src="${topic.image_url}" alt="${topic.title} illustration" 
-                                class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-[1.01] transition duration-300"
+                                class="w-full h-full object-cover rounded-lg shadow-md transform hover:scale-[1.01] transition duration-300"
                                 onerror="this.onerror=null; this.src='https://placehold.co/600x240/1D4ED8/FFFFFF?text=Image+for+Research+Topic';" />
                         </div>
                     ` : ''}
@@ -289,11 +289,6 @@
                     <p class="text-gray-600 content-editable-field min-h-[50px]"
                         id="research-sub-topics-${i}-content" data-key="research.sub_topics[${i}].content">
                         ${topic.content}
-                    </p>
-                    
-                    <p class="text-sm text-gray-500 mt-4">
-                        Image URL (Edit Mode Only):
-                        <span class="content-editable-field break-all" data-key="research.sub_topics[${i}].image_url">${topic.image_url || ''}</span>
                     </p>
                 </div>
             `).join('');
