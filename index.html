@@ -265,29 +265,50 @@
                 </div>
             `).join('');
 
-            // --- 2. PERSONAL LIFE SECTION ---
             const personalContainer = document.getElementById('personal-life-memories');
             personalContainer.innerHTML = data.personal_life.map((memory, i) => `
-                <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md overflow-hidden">
-                    <div class="md:w-1/2 md:pr-6"> <h4 class="text-2xl font-semibold mb-3" style="color: var(--theme-color-600, #4f46e5);"
-                            id="personal-life-${i}-title" data-key="personal_life[${i}].title" class="content-editable-field">
-                            ${memory.title}
-                        </h4>
-                        <p class="text-gray-600 leading-relaxed content-editable-field min-h-[50px]"
-                            id="personal-life-${i}-content" data-key="personal_life[${i}].content">
-                            ${memory.content}
-                        </p>
-                    </div>
-                    <div class="md:w-1/2 mt-4 md:mt-0"> ${memory.images && memory.images.length > 0 ? `
-                            <div class="grid ${memory.images.length > 1 ? 'grid-cols-2 gap-4' : 'grid-cols-1'}"> ${memory.images.map(url => `
-                                    <div class="rounded-lg shadow-sm overflow-hidden aspect-video"> 
-                                        <img src="${url}" alt="${memory.title} image" 
-                                            class="w-full h-full object-contain transform hover:scale-[1.02] transition duration-300"
-                                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/6B7280/FFFFFF?text=Image+Load+Error';" />
+                <div class="bg-white p-6 rounded-xl shadow-xl"> 
+                    <h4 class="text-2xl font-semibold mb-3" style="color: var(--theme-color-600, #4f46e5);"
+                        id="personal-life-${i}-title" data-key="personal_life[${i}].title" class="content-editable-field">
+                        ${memory.title}
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed content-editable-field mb-4"
+                        id="personal-life-${i}-content" data-key="personal_life[${i}].content">
+                        ${memory.content}
+                    </p>
+            
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        ${(memory.images || []).map(item => { // We assume 'images' contains all media items (photos/videos)
+            
+                            // Helper to get URL and Subtitle, supporting the Gallery object format: { url: "...", subtitle: "..." }
+                            const url = typeof item === 'object' && item.url ? item.url : item;
+                            const subtitle = typeof item === 'object' && item.subtitle ? item.subtitle : '';
+            
+                            // Determine if the item is a video by checking the URL
+                            const isVideo = url.includes('youtube.com') || url.includes('youtu.be') || url.includes('bilibili.com'); 
+            
+                            if (isVideo) {
+                                // Video Rendering Logic (from Gallery)
+                                let embedUrl = url;
+                                if (url.includes('youtube.com/watch?v=')) {
+                                    embedUrl = url.replace('watch?v=', 'embed/');
+                                }
+                                return `
+                                    <div class="space-y-2"> 
+                                        <div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                            <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                        ${subtitle ? `<p class="text-sm text-center text-gray-500">${subtitle}</p>` : ''}
                                     </div>
-                                `).join('')}
-                            </div>
-                        ` : ''}
+                                `;
+                            } else {
+                                // Photo Rendering Logic (from Gallery)
+                                return `
+                                    <img src="${url}" alt="${memory.title} media" class="w-full aspect-square object-cover rounded-lg shadow-lg transform hover:scale-[1.02] transition duration-300"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/400x400/EF4444/FFFFFF?text=Media+Load+Error';" />
+                                `;
+                            }
+                        }).join('')}
                     </div>
                 </div>
             `).join('');
