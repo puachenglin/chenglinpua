@@ -168,7 +168,7 @@
             research: {
                 main_intro: "Hello world! I am a PhD candidate (Malaysian) in Materials Science at Tsinghua University, specializing in advanced electron microscopy techniques. My research focuses on scanning transmission electron microscopy (STEM), with a particular emphasis on multi-slice electron ptychography (MEP). Previously, I have worked on the structural analysis of offshore launching platforms during my bachelor’s studies and conducted atomic-scale characterization of 2D materials.",
                 sub_topics: [
-                    { title: "Imaging Lunar Samples", content: "What do solar flare tracks look like" },
+                    { title: "Imaging Lunar Samples", content: "What do solar flare tracks look like", image_url: "https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/research/solar_square.png" },
                     { title: "Imaging Hydrogen Atoms", content: "Better atomic scale imaging of hydrogens" },
                     { title: "Offshore Launching Platform", content: "Influence of hydrogen combustion and its mitigation on offshore launch platforms" }
                 ]
@@ -273,6 +273,15 @@
             const researchContainer = document.getElementById('research-sub-topics');
             researchContainer.innerHTML = data.research.sub_topics.map((topic, i) => `
                 <div class="bg-white p-6 rounded-xl shadow-md border-t-4" style="border-top-color: var(--theme-color-500, #3b82f6);">
+                    
+                    ${topic.image_url ? `
+                        <div class="mb-4">
+                            <img src="${topic.image_url}" alt="${topic.title} illustration" 
+                                class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-[1.01] transition duration-300"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x240/1D4ED8/FFFFFF?text=Image+for+Research+Topic';" />
+                        </div>
+                    ` : ''}
+            
                     <h4 class="text-xl font-semibold mb-3" style="color: var(--theme-color-600, #4f46e5);"
                         id="research-sub-topics-${i}-title" data-key="research.sub_topics[${i}].title" class="content-editable-field">
                         ${topic.title}
@@ -280,6 +289,11 @@
                     <p class="text-gray-600 content-editable-field min-h-[50px]"
                         id="research-sub-topics-${i}-content" data-key="research.sub_topics[${i}].content">
                         ${topic.content}
+                    </p>
+                    
+                    <p class="text-sm text-gray-500 mt-4">
+                        Image URL (Edit Mode Only):
+                        <span class="content-editable-field break-all" data-key="research.sub_topics[${i}].image_url">${topic.image_url || ''}</span>
                     </p>
                 </div>
             `).join('');
