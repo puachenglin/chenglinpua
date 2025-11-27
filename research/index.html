@@ -172,6 +172,11 @@
                         title: "Imaging Lunar Samples", 
                         content: "What do solar flare tracks look like. ", 
                         figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/research/solar_flare_track.jpg",
+                        // NEW: Added figure_urls_supplementary
+                        figure_urls_supplementary: [
+                            "https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/research/solar_flare_track_sup1.png",
+                            "https://raw.githubusercontent.com/puachenglin/chenglinpua_website/main/media/research/solar_flare_track_sup2.png"
+                        ],
                         journal_link: "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adfm.202509781",
                         dataset_link: "https://zenodo.org/records/15355179",
                         youtube_link: "https://www.youtube.com/watch?v=0Y3gs19oRRQ",
@@ -412,7 +417,7 @@
         // FULL CONTENT RENDER FUNCTIONS (Only used here)
         // ====================================================================
 
-        function renderResearchFull(data) {
+function renderResearchFull(data) {
             const researchSection = document.getElementById('research-section');
             researchSection.innerHTML = `
                 <h2 class="text-4xl font-bold mb-8 text-center" style="color: var(--theme-color-700, #3730a3);">🔬 Research Overview (Full Academic Portfolio)</h2>
@@ -452,6 +457,24 @@
                                     </p>
                                 </div>
                             ` : ''}
+
+                            ${topic.figure_urls_supplementary && topic.figure_urls_supplementary.length > 0 ? `
+                                <div class="mb-6 border-t pt-4 border-gray-100">
+                                    <h5 class="text-lg font-semibold mb-2 text-gray-700">Supplementary Images</h5>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        ${topic.figure_urls_supplementary.map((url, j) => `
+                                            <div class="w-full">
+                                                <img src="${url}" alt="${topic.title} supplementary image ${j+1}" 
+                                                    class="w-full h-auto rounded-lg shadow-md magnify-on-hover" 
+                                                    onerror="this.onerror=null; this.src='https://placehold.co/400x300/FACC15/000000?text=SUPPLEMENTARY+IMG';" />
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <p class="mt-4 text-sm text-gray-500">
+                                        Supplementary URLs (Separate with comma): <span class="content-editable-field break-all" data-key="research.sub_topics[${i}].figure_urls_supplementary">${topic.figure_urls_supplementary.join(', ')}</span>
+                                    </p>
+                                </div>
+                            ` : ''}
                             
                             <div class="flex flex-wrap gap-3 mt-6 border-t pt-4 border-gray-100">
                                 ${topic.journal_link ? `
@@ -469,7 +492,7 @@
                                 ${topic.youtube_link ? `
                                     <a href="${topic.youtube_link}" target="_blank" 
                                         class="px-4 py-2 text-sm font-medium rounded-full bg-red-500 text-white hover:bg-red-600 transition duration-150 shadow-md">
-                                        ▶️ Watch YouTube Demo (MEP)
+                                        ▶️ Watch YouTube (MEP)
                                     </a>
                                 ` : ''}
                             </div>
