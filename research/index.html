@@ -447,14 +447,11 @@ function renderResearchFull(data) {
 
                             ${topic.figure_url_long ? `
                                 <div class="mb-6">
-                                    <h5 class="text-lg font-semibold mb-2 text-gray-700">Project Figure (PPT Longstyle)</h5>
+                                    <h5 class="text-lg font-semibold mb-2 text-gray-700"></h5>
                                     <div class="figure-longstyle w-full rounded-lg overflow-hidden shadow-xl magnify-on-hover">
                                         <img src="${topic.figure_url_long}" alt="${topic.title} long-style figure" 
                                             onerror="this.onerror=null; this.src='https://placehold.co/1200x300/1D4ED8/FFFFFF?text=PPT+LONGSTYLE+FIGURE';" />
                                     </div>
-                                    <p class="mt-2 text-sm text-gray-500">
-                                        Figure URL: <span class="content-editable-field break-all" data-key="research.sub_topics[${i}].figure_url_long">${topic.figure_url_long || ''}</span>
-                                    </p>
                                 </div>
                             ` : ''}
 
@@ -470,9 +467,6 @@ function renderResearchFull(data) {
                                             </div>
                                         `).join('')}
                                     </div>
-                                    <p class="mt-4 text-sm text-gray-500">
-                                        Supplementary URLs (Separate with comma): <span class="content-editable-field break-all" data-key="research.sub_topics[${i}].figure_urls_supplementary">${topic.figure_urls_supplementary.join(', ')}</span>
-                                    </p>
                                 </div>
                             ` : ''}
                             
