@@ -434,11 +434,13 @@
                     ${data.research.sub_topics.map((topic, i) => `
                         <div class="bg-white p-6 rounded-xl shadow-md border-t-4" style="border-top-color: var(--theme-color-500, #3b82f6);">
                             
-                            ${topic.figure_url_long ? `
+                                ${topic.figure_url_long ? `
                                 <div class="mb-4">
-                                    <img src="${topic.figure_url_long}" alt="${topic.title} illustration" 
-                                        class="w-full h-full object-contain rounded-lg shadow-md magnify-on-hover"
-                                        onerror="this.onerror=null; this.src='https://placehold.co/600x160/1D4ED8/FFFFFF?text=Image+for+Topic';" />
+                                    <a href="${topic.figure_url_long}" target="_blank" title="View full-size image">
+                                        <img src="${topic.figure_url_long}" alt="${topic.title} illustration" 
+                                            class="w-full h-full object-contain rounded-lg shadow-md magnify-on-hover cursor-pointer"
+                                            onerror="this.onerror=null; this.src='https://placehold.co/600x160/1D4ED8/FFFFFF?text=Image+for+Topic';" />
+                                    </a>
                                 </div>
                             ` : ''}
                     
