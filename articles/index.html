@@ -222,6 +222,24 @@
                     content: "This article explains the “gambler’s fallacy” and uses it to remind us not to make biased or premature judgments—whether in gambling or in daily life—based on limited personal experience.", 
                     source: "Sin Chew Daily, Malaysia", 
                     link: "https://www.sinchew.com.my/news/20210320/supplement/3144313" 
+                },
+                { 
+                    title: "Greater influence of Malaysia rare earth industry", 
+                    content: "Malaysia’s growing rare earth industry—bolstered by new non-radioactive deposits and strategic cooperation between East and West—has positioned the country as a key player in the global supply chain, though balancing environmental concerns and geopolitical pressures remains its greatest challenge.", 
+                    source: "Nanyang Siang Pau, Malaysia", 
+                    link: "https://www.enanyang.my/news/20250508/Testimonia-Column/683117" 
+                },
+               { 
+                    title: "Challenges of Malaysia semiconductor industry", 
+                    content: "Malaysia’s semiconductor industry holds growing strategic importance amid U.S.–China tech tensions, but faces major challenges—including talent outflow, weak R&D capabilities, infrastructure gaps, and geopolitical risks—that hinder its progress from a manufacturing hub to an innovation-driven powerhouse.", 
+                    source: "International Trade Administration", 
+                    link: "https://www.trade.gov.tw/Pages/Detail.aspx?nodeid=45&pid=785484" 
+                },
+                { 
+                    title: "Combining blockchain and manufacturing", 
+                    content: "Blockchain technology is transforming manufacturing by enabling transparent supply chains, decentralized industrial networks, intelligent production, and sustainable energy management, with platforms like NULS lowering adoption barriers and helping factories build secure, efficient, and customized blockchain systems.", 
+                    source: "01 Finance, China", 
+                    link: "https://www.panewslab.com/zh/articles/D46087618" 
                 }
             ],
             social_links: [
@@ -399,7 +417,7 @@
         function renderArticlesFull(data) {
             const articleSection = document.getElementById('articles-section');
             articleSection.innerHTML = `
-                <h2 class="text-4xl font-bold mb-10 text-center" style="color: var(--theme-color-700, #3730a3);">📰 Articles & Published Thoughts (Full List)</h2>
+                <h2 class="text-4xl font-bold mb-10 text-center" style="color: var(--theme-color-700, #3730a3);">📰 Articles & Published Thoughts</h2>
                 <div class="space-y-8" id="article-list">
                     ${data.articles.map((article, i) => `
                         <div class="bg-white p-6 rounded-xl shadow-xl border-l-4" style="border-left-color: var(--theme-color-500, #3b82f6);">
