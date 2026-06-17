@@ -1,28 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/me.jpeg</image:loc>
+      <image:title>Chenglin Pua portrait</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/research/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/research/diamond_long.png</image:loc>
+      <image:title>Diamond lattice ptychography by Chenglin Pua</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/research/solar_flare_track.jpg</image:loc>
+      <image:title>Solar flare tracks in lunar samples</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/research/hea_long.png</image:loc>
+      <image:title>Hydrogen atom imaging with multi-slice electron ptychography</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/research/offshore_long.jpg</image:loc>
+      <image:title>Hydrogen combustion and offshore launch platform safety</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/articles/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/paris_me.jpg</image:loc>
+      <image:title>Chenglin Pua conference travel portrait</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/gallery/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/tno_1.png</image:loc>
+      <image:title>Atomic-resolution TNO microscopy image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/poly_si.jpg</image:loc>
+      <image:title>Polycrystalline silicon atomic visualization</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/atomic_edx.png</image:loc>
+      <image:title>Atomic EDX elemental map</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/adf.jpg</image:loc>
+      <image:title>ADF STEM microscopy image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/abf.png</image:loc>
+      <image:title>ABF STEM microscopy image</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/personal/</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/japan1.jpg</image:loc>
+      <image:title>Chenglin Pua Japan travel photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/silicon_long.jpeg</image:loc>
+      <image:title>Chenglin Pua Silicon Valley travel photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/sabah_8.jpeg</image:loc>
+      <image:title>Kota Kinabalu Sabah Malaysia travel photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/jiuzhaigou_long.jpg</image:loc>
+      <image:title>Jiuzhaigou China landscape photo</image:title>
+    </image:image>
   </url>
 </urlset>
