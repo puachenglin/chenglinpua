@@ -693,7 +693,7 @@
                                 ${album.title}
                             </h4>
                             <p class="text-sm text-gray-500 mb-4">Album Type: <span class="content-editable-field" data-key="gallery_albums[${i}].type">${album.type}</span></p>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div class="${album.type === 'video' ? 'grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl' : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'}">
                                 ${(album.items || []).map((item, j) => { 
                                     
                                     const url = typeof item === 'object' && item.url ? item.url : item;
@@ -705,7 +705,8 @@
                                             embedUrl = url.replace('watch?v=', 'embed/');
                                         }
                                         return `
-                                            <div class="space-y-2"> <div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                            <div class="space-y-3">
+                                                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-xl border border-gray-200">
                                                     <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                 </div>
                                                 ${subtitle ? `<p class="text-sm text-center text-gray-500 content-editable-field" data-key="gallery_albums[${i}].items[${j}].subtitle">${subtitle}</p>` : ''}
@@ -849,7 +850,7 @@ ${topic.figure_url_long ? `
                             <h4 class="text-2xl font-semibold mb-4" style="color: var(--theme-color-600, #4f46e5);">
                                 ${album.title}
                             </h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div class="${album.type === 'video' ? 'grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl' : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'}">
                                 ${(album.items || []).slice(0, 4).map(item => {
                                     const url = typeof item === 'object' && item.url ? item.url : item;
                                     const isVideo = album.type === 'video';
@@ -859,8 +860,10 @@ ${topic.figure_url_long ? `
                                             embedUrl = url.replace('watch?v=', 'embed/');
                                         }
                                         return `
-                                            <div class="space-y-2 aspect-video w-full rounded-lg overflow-hidden shadow-lg border border-gray-200">
-                                                <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+                                            <div class="space-y-2">
+                                                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-xl border border-gray-200">
+                                                    <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+                                                </div>
                                             </div>
                                         `;
                                     } else {
