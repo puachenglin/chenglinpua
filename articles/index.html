@@ -20,18 +20,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --page-ink: #0f172a;
+            --page-muted: #475569;
+            --page-line: rgba(15, 23, 42, 0.1);
+            --page-surface: rgba(255, 255, 255, 0.88);
+            --theme-color-500: #1d4ed8;
+            --theme-color-600: #1d4ed8;
+            --theme-color-700: #12395b;
+            --theme-color-800: #0f3151;
+        }
         body {
             font-family: 'Inter', sans-serif;
+            color: var(--page-ink);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.14), transparent 28rem),
+                radial-gradient(circle at 88% 8%, rgba(59, 130, 246, 0.14), transparent 30rem),
+                linear-gradient(180deg, #f8fbff 0%, #eef5fb 50%, #f9fbff 100%);
             transition: background-color 0.3s;
         }
         /* Custom scrollbar style for modern browsers */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        ::-webkit-scrollbar-track { background: #eaf2f8; }
+        ::-webkit-scrollbar-thumb { background: #12395b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0f3151; }
 
         .content-editable-field:hover {
-            outline: 2px solid var(--theme-color-500, #3b82f6);
+            outline: 2px solid var(--theme-color-500, #1d4ed8);
             cursor: text;
         }
         
@@ -48,7 +63,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="shadow-lg sticky top-0 z-50 transition-colors duration-300" id="header" style="background-color: var(--theme-color-800, #1e40af);">
+    <header class="shadow-lg sticky top-0 z-50 transition-colors duration-300" id="header" style="background-color: var(--theme-color-800, #0f3151);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
             <h1 class="text-3xl font-extrabold tracking-tight text-white">Chenglin Pua</h1>
             <nav class="hidden md:flex space-x-6">
@@ -75,7 +90,7 @@
             <div class="md:col-span-3 space-y-20" id="main-content-wrapper">
                 
                 <div id="loading-indicator" class="text-center py-20">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto" style="border-color: var(--theme-color-600, #4f46e5);"></div>
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700 mx-auto" style="border-color: var(--theme-color-600, #1d4ed8);"></div>
                     <p class="mt-4 text-lg text-gray-600">Loading articles content...</p>
                 </div>
 
@@ -91,7 +106,7 @@
         </div>
     </main>
 
-    <footer class="mt-16 py-8" style="background-color: var(--theme-color-800, #1e40af);">
+    <footer class="mt-16 py-8" style="background-color: var(--theme-color-800, #0f3151);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div id="social-links-container" class="flex justify-center space-x-6 mb-4">
                 </div>
@@ -101,7 +116,7 @@
 
     <div id="config-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
-            <h3 class="text-2xl font-bold mb-6" style="color: var(--theme-color-700, #3730a3);">Website Configuration</h3>
+            <h3 class="text-2xl font-bold mb-6" style="color: var(--theme-color-700, #12395b);">Website Configuration</h3>
             <div class="space-y-4">
                 <div>
                     <label for="color-picker" class="block text-sm font-medium text-gray-700 mb-2">Primary Theme Color (Tailwind Color Scale)</label>
@@ -113,7 +128,7 @@
                 </div>
             </div>
             <div class="mt-6 flex justify-end space-x-3">
-                <button onclick="saveThemeColor()" class="px-4 py-2 font-medium rounded-lg text-white" style="background-color: var(--theme-color-600, #4f46e5); hover-bg-color: var(--theme-color-700, #3730a3);">
+                <button onclick="saveThemeColor()" class="px-4 py-2 font-medium rounded-lg text-white" style="background-color: var(--theme-color-600, #1d4ed8); hover-bg-color: var(--theme-color-700, #12395b);">
                     Save Settings
                 </button>
                 <button onclick="document.getElementById('config-modal').classList.add('hidden')" class="px-4 py-2 font-medium rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300">
@@ -138,7 +153,7 @@
 
         let app, db, auth, userId = null;
         let isEditMode = false;
-        let themeColorHex = '#3B82F6'; 
+        let themeColorHex = '#1D4ED8'; 
 
         const CONFIG_PATH = (uid) => `artifacts/${appId}/users/${uid}/website_settings/settings`;
         const CONTENT_PATH = `artifacts/${appId}/public/data/website_content/main_data`;
@@ -432,11 +447,11 @@
         function renderArticlesFull(data) {
             const articleSection = document.getElementById('articles-section');
             articleSection.innerHTML = `
-                <h2 class="text-4xl font-bold mb-10 text-center" style="color: var(--theme-color-700, #3730a3);">📰 Articles & Published Thoughts</h2>
+                <h2 class="text-4xl font-bold mb-10 text-center" style="color: var(--theme-color-700, #12395b);">📰 Articles & Published Thoughts</h2>
                 <div class="space-y-8" id="article-list">
                     ${data.articles.map((article, i) => `
-                        <div class="bg-white p-6 rounded-xl shadow-xl border-l-4" style="border-left-color: var(--theme-color-500, #3b82f6);">
-                            <h4 class="text-2xl font-bold mb-3 content-editable-field" style="color: var(--theme-color-600, #4f46e5);"
+                        <div class="bg-white p-6 rounded-xl shadow-xl border-l-4" style="border-left-color: var(--theme-color-500, #1d4ed8);">
+                            <h4 class="text-2xl font-bold mb-3 content-editable-field" style="color: var(--theme-color-600, #1d4ed8);"
                                id="article-${i}-title" data-key="articles[${i}].title">
                                 ${article.title}
                             </h4>
@@ -452,7 +467,7 @@
                                     Source: ${article.source}
                                 </p>
                                 <a href="${article.link || '#'}" target="_blank" 
-                                    class="px-4 py-2 text-sm font-medium rounded-full bg-indigo-500 text-white hover:bg-indigo-600 transition duration-150 shadow-md">
+                                    class="px-4 py-2 text-sm font-medium rounded-full text-white transition duration-150 shadow-md" style="background-color: var(--theme-color-600, #1d4ed8);">
                                     Read Full Article &rarr;
                                 </a>
                             </div>
