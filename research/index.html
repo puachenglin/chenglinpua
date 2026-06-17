@@ -20,8 +20,25 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --page-ink: #0f172a;
+            --page-muted: #475569;
+            --page-line: rgba(15, 23, 42, 0.1);
+            --page-surface: rgba(255, 255, 255, 0.88);
+            --page-navy: #12395b;
+            --page-blue: #1d4ed8;
+            --page-teal: #0f766e;
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--page-ink);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.14), transparent 28rem),
+                radial-gradient(circle at 88% 8%, rgba(59, 130, 246, 0.14), transparent 30rem),
+                linear-gradient(180deg, #f8fbff 0%, #eef5fb 50%, #f9fbff 100%);
             transition: background-color 0.3s;
         }
         /* Custom scrollbar style for modern browsers */
@@ -58,6 +75,121 @@
             z-index: 10; /* Bring to front */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
         }
+
+        .site-header,
+        .site-footer {
+            background: rgba(15, 49, 81, 0.94);
+            backdrop-filter: blur(16px);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .profile-card,
+        .research-panel,
+        .project-card {
+            border: 1px solid var(--page-line);
+            background: var(--page-surface);
+            box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        .project-card {
+            overflow: hidden;
+            border-top: 0;
+        }
+
+        .project-card::before {
+            content: '';
+            display: block;
+            height: 4px;
+            background: linear-gradient(90deg, var(--page-blue), var(--page-teal));
+            margin: -2rem -2rem 1.6rem;
+        }
+
+        .research-image-link {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            background: #0f172a;
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .research-image-link:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 38px rgba(15, 23, 42, 0.24);
+            border-color: rgba(147, 197, 253, 0.85);
+            z-index: 10;
+        }
+
+        .research-image-link img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .research-image-link:hover img {
+            transform: scale(1.045);
+            filter: saturate(1.04) contrast(1.02);
+        }
+
+        .research-image-main {
+            background: #ffffff;
+        }
+
+        .section-eyebrow {
+            color: var(--page-teal);
+            letter-spacing: 0.24em;
+        }
+
+        .research-action {
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        #research-section > h2,
+        #research-section > h3,
+        #research-section h3[style],
+        #research-section h4[style] {
+            color: var(--page-ink) !important;
+            letter-spacing: -0.02em;
+        }
+
+        #research-section > h2,
+        #research-section > h3 {
+            font-weight: 900;
+        }
+
+        #research-section .bg-white {
+            border: 1px solid var(--page-line);
+            background: var(--page-surface) !important;
+            box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08) !important;
+            backdrop-filter: blur(12px);
+        }
+
+        #research-sub-topics > div {
+            position: relative;
+            overflow: hidden;
+            border-top-width: 0 !important;
+        }
+
+        #research-sub-topics > div::before {
+            content: '';
+            display: block;
+            height: 4px;
+            margin: -2rem -2rem 1.6rem;
+            background: linear-gradient(90deg, var(--page-blue), var(--page-teal));
+        }
+
+        #research-section a.bg-blue-500,
+        #research-section a.bg-green-500,
+        #research-section a.bg-red-500 {
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+        }
         
         /* NEW: PPT Longstyle (4:1 Aspect Ratio) */
         .aspect-16-4 {
@@ -71,9 +203,9 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
-    <header class="shadow-lg sticky top-0 z-50 transition-colors duration-300" id="header" style="background-color: var(--theme-color-800, #1e40af);">
+    <header class="site-header shadow-lg sticky top-0 z-50 transition-colors duration-300" id="header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
             <h1 class="text-3xl font-extrabold tracking-tight text-white">Chenglin Pua</h1>
             <nav class="hidden md:flex space-x-6">
@@ -90,7 +222,7 @@
         <div class="md:grid md:grid-cols-4 md:gap-8">
             
             <div class="md:col-span-1 mb-8 md:mb-0">
-                <div id="profile-sidebar" class="sticky top-24 bg-white p-6 rounded-xl shadow-lg">
+                <div id="profile-sidebar" class="profile-card sticky top-24 p-6 rounded-xl">
                     <div id="profile-sidebar-content"></div>
                 </div>
             </div>
@@ -114,7 +246,7 @@
         </div>
     </main>
 
-    <footer class="mt-16 py-8" style="background-color: var(--theme-color-800, #1e40af);">
+    <footer class="site-footer mt-16 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div id="social-links-container" class="flex justify-center space-x-6 mb-4">
                 </div>
@@ -425,6 +557,13 @@
         // FULL CONTENT RENDER FUNCTIONS (Only used here)
         // ====================================================================
 
+        function buildGalleryViewerUrl(src, title) {
+            const url = new URL('../gallery/viewer.html', window.location.href);
+            url.searchParams.set('src', src);
+            url.searchParams.set('title', title || 'Research image');
+            return url.toString();
+        }
+
 function renderResearchFull(data) {
             const researchSection = document.getElementById('research-section');
             researchSection.innerHTML = `
@@ -455,9 +594,9 @@ function renderResearchFull(data) {
 
 ${topic.figure_url_long ? `
                                 <div class="mb-4">
-                                    <a href="${topic.figure_url_long}" target="_blank" title="View full-size research illustration">
+                                    <a href="${buildGalleryViewerUrl(topic.figure_url_long, topic.title)}" target="_blank" rel="noopener noreferrer" title="View full-size research illustration" class="research-image-link research-image-main">
                                         <img src="${topic.figure_url_long}" alt="${topic.title} illustration" 
-                                            class="w-full h-full object-contain rounded-lg shadow-md magnify-on-hover cursor-pointer"
+                                            class="cursor-pointer"
                                             onerror="this.onerror=null; this.src='https://placehold.co/600x160/1D4ED8/FFFFFF?text=Image+for+Topic';" />
                                     </a>
                                 </div>
@@ -469,9 +608,9 @@ ${topic.figure_url_long ? `
                                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 ${topic.figure_urls_supplementary.map((url, j) => `
     <div class="w-full">
-        <a href="${url}" target="_blank" title="View full-size supplementary image">
+        <a href="${buildGalleryViewerUrl(url, topic.title + ' supplementary image ' + (j+1))}" target="_blank" rel="noopener noreferrer" title="View full-size supplementary image" class="research-image-link">
             <img src="${url}" alt="${topic.title} supplementary image ${j+1}" 
-                class="w-full h-auto rounded-lg shadow-md magnify-on-hover cursor-pointer" 
+                class="cursor-pointer" 
                 onerror="this.onerror=null; this.src='https://placehold.co/400x300/FACC15/000000?text=SUPPLEMENTARY+IMG';" />
         </a>
     </div>
