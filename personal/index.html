@@ -3,639 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chenglin Pua - Personal Life</title>
-    <meta name="description" content="Chenglin Pua personal life and travel photo albums, documenting various experiences outside of academic research.">
-    <meta name="keywords" content="personal, travel, life, memories, gallery">
+    <title>Chenglin Pua Personal Life | Travel, Conferences and Photo Stories</title>
+    <meta name="description" content="Personal travel and conference photo stories by Chenglin Pua, including Japan, Silicon Valley, Kota Kinabalu, Jiuzhaigou, Datong, Europe, China and Malaysia.">
+    <meta name="keywords" content="Chenglin Pua personal, Chenglin Pua travel, Malaysia, Kota Kinabalu, Japan Kyoto, Silicon Valley, Jiuzhaigou, Datong, Tsinghua student life">
     <meta name="author" content="Chenglin Pua">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://puachenglin.github.io/chenglinpua/personal/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Chenglin Pua - Personal Life">
-    <meta property="og:description" content="Travel stories, personal moments, and experiences of Chenglin Pua.">
+    <meta property="og:title" content="Chenglin Pua Personal Life and Travel">
+    <meta property="og:description" content="Travel, conference and personal photo stories from Chenglin Pua.">
     <meta property="og:url" content="https://puachenglin.github.io/chenglinpua/personal/">
-    <meta property="og:image" content="https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_me.jpg">
+    <meta property="og:image" content="https://puachenglin.github.io/chenglinpua/media/travel/jzg_me.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chenglin Pua Personal Life">
+    <meta name="twitter:description" content="Travel and personal photo stories by Chenglin Pua.">
+    <meta name="twitter:image" content="https://puachenglin.github.io/chenglinpua/media/travel/jzg_me.jpg">
     <link rel="icon" href="https://placehold.co/32x32/1D4ED8/FFFFFF?text=P">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s;
-        }
-        /* Custom scrollbar style for modern browsers */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-        .content-editable-field:hover {
-            outline: 2px solid var(--theme-color-500, #3b82f6);
-            cursor: text;
+        :root {
+            --page-ink: #0f172a;
+            --page-muted: #475569;
+            --page-line: rgba(15, 23, 42, 0.1);
+            --page-surface: rgba(255, 255, 255, 0.88);
+            --page-navy: #12395b;
+            --page-blue: #1d4ed8;
+            --page-teal: #0f766e;
         }
-        
-        /* Magnification on Hover */
-        .magnify-on-hover {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+
+        * {
+            box-sizing: border-box;
         }
-        .magnify-on-hover:hover {
-            transform: scale(1.05);
-            z-index: 10; 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--page-ink);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.14), transparent 28rem),
+                radial-gradient(circle at 88% 8%, rgba(59, 130, 246, 0.14), transparent 30rem),
+                linear-gradient(180deg, #f8fbff 0%, #eef5fb 50%, #f9fbff 100%);
         }
-        
-        /* PPT Longstyle (4:1 Aspect Ratio) - Added to all subpages */
-        .aspect-16-4 {
-            aspect-ratio: 16 / 4;
+
+        .site-header {
+            background: rgba(15, 49, 81, 0.94);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
         }
-        .figure-longstyle img {
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.84);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+        }
+
+        .intro-panel,
+        .album-card {
+            border: 1px solid var(--page-line);
+            background: var(--page-surface);
+            box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        .album-card {
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            color: var(--page-teal);
+            letter-spacing: 0.18em;
+        }
+
+        .photo-tile {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            background: #0f172a;
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .photo-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 38px rgba(15, 23, 42, 0.24);
+            border-color: rgba(147, 197, 253, 0.85);
+            z-index: 5;
+        }
+
+        .photo-tile img {
             width: 100%;
-            height: auto; /* MODIFICATION 2: Changed from 100% to auto for full height display */
-            object-fit: initial; /* MODIFICATION 2: Removed object-fit: cover to prevent cropping */
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .photo-tile:hover img {
+            transform: scale(1.08);
+            filter: saturate(1.05) contrast(1.03);
+        }
+
+        .long-figure {
+            aspect-ratio: auto;
+            background: #ffffff;
+        }
+
+        .long-figure img {
+            display: block;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .photo-square {
+            aspect-ratio: 1 / 1;
+        }
+
+        .album-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .album-number {
+            color: rgba(18, 57, 91, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .long-figure {
+                aspect-ratio: auto;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Chenglin Pua Personal Life and Travel",
+      "url": "https://puachenglin.github.io/chenglinpua/personal/",
+      "about": {"@type": "Person", "name": "Chenglin Pua"},
+      "image": [
+        "https://puachenglin.github.io/chenglinpua/media/travel/japan1.jpg",
+        "https://puachenglin.github.io/chenglinpua/media/travel/silicon_long.jpeg",
+        "https://puachenglin.github.io/chenglinpua/media/travel/sabah_8.jpeg",
+        "https://puachenglin.github.io/chenglinpua/media/travel/jiuzhaigou_long.jpg"
+      ]
+    }
+    </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-
-    <header class="shadow-lg sticky top-0 z-50 transition-colors duration-300" id="header" style="background-color: var(--theme-color-800, #1e40af);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-            <h1 class="text-3xl font-extrabold tracking-tight text-white">Chenglin Pua</h1>
-            <nav class="hidden md:flex space-x-6">
-                <a href="../" class="text-white hover:text-opacity-80 transition duration-150 font-medium">Home</a>
-                <a href="../research/" class="text-white hover:text-opacity-80 transition duration-150 font-medium">Research</a>
-                <a href="./" class="text-white hover:text-opacity-80 transition duration-150 font-medium">Personal Life</a>
-                <a href="../gallery/" class="text-white hover:text-opacity-80 transition duration-150 font-medium">Gallery</a>
-                <a href="../articles/" class="text-white hover:text-opacity-80 transition duration-150 font-medium">Articles</a>
+<body>
+    <header class="site-header sticky top-0 z-50">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <a href="../" class="text-2xl font-extrabold tracking-tight text-white">Chenglin Pua</a>
+            <nav class="hidden items-center gap-6 text-sm font-semibold md:flex" aria-label="Main navigation">
+                <a class="nav-link" href="../">Home</a>
+                <a class="nav-link" href="../research/">Research</a>
+                <a class="nav-link active" href="./">Personal</a>
+                <a class="nav-link" href="../gallery/">Gallery</a>
+                <a class="nav-link" href="../articles/">Articles</a>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="md:grid md:grid-cols-4 md:gap-8">
-            
-            <div class="md:col-span-1 mb-8 md:mb-0">
-                <div id="profile-sidebar" class="sticky top-24 bg-white p-6 rounded-xl shadow-lg">
-                    <div id="profile-sidebar-content"></div>
-                    <div class="mt-6 pt-4 border-t border-gray-100 text-center">
-                    </div>
-                </div>
+    <main>
+        <section class="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
+            <div class="intro-panel rounded-2xl p-8 sm:p-10 lg:p-12">
+                <p class="eyebrow mb-4 text-sm font-bold uppercase">Personal Life</p>
+                <h1 class="max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">Personal Life & Travels</h1>
+                <p class="mt-5 max-w-4xl text-lg leading-8 text-slate-700">
+                    Welcome to my personal life and travel photo album! This page features photos from my business trips and conference journeys. Just to be clear, I am not from a rich family, most of the expenses are sponsored or reimbursed. Enjoy!
+                </p>
             </div>
+        </section>
 
-            <div class="md:col-span-3 space-y-20" id="main-content-wrapper">
-                
-                <div id="loading-indicator" class="text-center py-20">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto" style="border-color: var(--theme-color-600, #4f46e5);"></div>
-                    <p class="mt-4 text-lg text-gray-600">Loading personal page content...</p>
-                </div>
-
-                <section id="personal-section" class="scroll-mt-24"></section>
-                
-                <section id="research-section" class="scroll-mt-24 hidden"></section>
-                <section id="education-section" class="scroll-mt-24 hidden"></section>
-                <section id="presentations-section" class="scroll-mt-24 hidden"></section>
-                <section id="awards-section" class="scroll-mt-24 hidden"></section>
-                <section id="gallery-section" class="scroll-mt-24 hidden"></section>
-                <section id="articles-section" class="scroll-mt-24 hidden"></section>
-            </div>
-        </div>
+        <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div id="album-list" class="space-y-10"></div>
+        </section>
     </main>
 
-    <footer class="mt-16 py-8" style="background-color: var(--theme-color-800, #1e40af);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div id="social-links-container" class="flex justify-center space-x-6 mb-4">
-                </div>
-            <p class="text-white text-sm">&copy; <span id="current-year"></span> Chenglin Pua. Built with Firebase and Tailwind CSS.</p>
+    <footer class="bg-[#12395b] py-8 text-white">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+            <p>&copy; 2026 Chenglin Pua. Personal photo journal.</p>
+            <a class="font-semibold text-white/90" href="../">Back to home</a>
         </div>
     </footer>
 
-    <div id="config-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
-            <h3 class="text-2xl font-bold mb-6" style="color: var(--theme-color-700, #3730a3);">Website Configuration</h3>
-            <div class="space-y-4">
-                <div>
-                    <label for="color-picker" class="block text-sm font-medium text-gray-700 mb-2">Primary Theme Color (Tailwind Color Scale)</label>
-                    <input type="color" id="color-picker" class="w-full h-10 border border-gray-300 rounded-lg p-1">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">User ID (For other users to find you)</label>
-                    <p id="user-id-display" class="break-all bg-gray-100 p-2 rounded-lg text-sm font-mono"></p>
-                </div>
-            </div>
-            <div class="mt-6 flex justify-end space-x-3">
-                <button onclick="saveThemeColor()" class="px-4 py-2 font-medium rounded-lg text-white" style="background-color: var(--theme-color-600, #4f46e5); hover-bg-color: var(--theme-color-700, #3730a3);">
-                    Save Settings
-                </button>
-                <button onclick="document.getElementById('config-modal').classList.add('hidden')" class="px-4 py-2 font-medium rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        setLogLevel('debug');
-
-        // --- GLOBAL VARIABLES & INITIALIZATION (Identical to Main Page) ---
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        let app, db, auth, userId = null;
-        let isEditMode = false;
-        let themeColorHex = '#3B82F6'; 
-
-        const CONFIG_PATH = (uid) => `artifacts/${appId}/users/${uid}/website_settings/settings`;
-        const CONTENT_PATH = `artifacts/${appId}/public/data/website_content/main_data`;
-
-        // The complete and consistent content model across all pages
-        const initialContent = {
-            profile: {
-                name: "Chenglin Pua",
-                title: "PhD Candidate in Material Science at Tsinghua"
+    <script>
+        const albums = [
+            {
+                title: 'Japan Kyoto',
+                content: 'It was my first time in Japan (June 2025), and I was incredibly lucky to meet my idol, Jay Chou, while I was there!',
+                figure: '../media/travel/japan1.jpg',
+                images: ['../media/travel/jay_chou.png', '../media/travel/tokyo_japan.jpg']
             },
-            research: {
-                main_intro: "Hello world! I am a PhD candidate (Malaysian) in Materials Science at Tsinghua University, specializing in advanced electron microscopy techniques. My research focuses on scanning transmission electron microscopy (STEM), with a particular emphasis on multi-slice electron ptychography (MEP). Previously, I have worked on the structural analysis of offshore launching platforms during my bachelor’s studies and conducted atomic-scale characterization of 2D materials.",
-                sub_topics: [
-                    { 
-                        title: "Imaging Lunar Samples", 
-                        content: "What do solar flare tracks look like. This project uses advanced STEM imaging to analyze the structural changes in lunar soil caused by solar radiation, providing insights into space weathering processes. The full paper details the methodology and results of the atomic-scale characterization.", 
-                        figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/research/solar_long_figure.png",
-                        journal_link: "https://www.nature.com/articles/lunarsamples",
-                        dataset_link: "https://zenodo.org/datasets/lunardata",
-                        youtube_link: null
-                    },
-                    { 
-                        title: "Imaging Hydrogen Atoms", 
-                        content: "Better atomic scale imaging of hydrogens using Multi-slice Electron Ptychography (MEP). This work is critical for understanding hydrogen storage materials and catalysts. MEP offers high-resolution, phase-retrieved images essential for visualizing light elements like hydrogen.", 
-                        figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/research/hea_h_long_figure.png",
-                        journal_link: "https://www.science.org/doi/10.1126/science.hydrogen",
-                        dataset_link: null,
-                        youtube_link: "https://www.youtube.com/watch?v=MEP_demo_video"
-                    },
-                    { 
-                        title: "Offshore Launching Platform", 
-                        content: "Influence of hydrogen combustion and its mitigation on offshore launch platforms. This is an engineering safety project analyzing structural integrity under extreme conditions.", 
-                        figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/research/offshore_long_figure.jpg",
-                        journal_link: "https://ieeexplore.ieee.org/abstract/offshore_safety",
-                        dataset_link: null,
-                        youtube_link: null
-                    }
+            {
+                title: 'USA Silicon Valley',
+                content: 'Photos from my trip to Silicon Valley, USA, during November 2024, invited by Stanford University.',
+                figure: '../media/travel/silicon_long.jpeg',
+                images: ['../media/travel/silicon_2.jpg', '../media/travel/silicon_1.jpg']
+            },
+            {
+                title: 'Malaysia Kota Kinabalu',
+                content: 'Photos from my trip to Malaysia Kota Kinabalu, during January 2026, sharing the beauty of my motherland!',
+                figure: '../media/travel/sabah_8.jpeg',
+                images: [
+                    '../media/travel/sabah_1.jpeg', '../media/travel/sabah_2.jpeg', '../media/travel/sabah_3.jpeg',
+                    '../media/travel/sabah_4.jpeg', '../media/travel/sabah_5.jpeg', '../media/travel/sabah_6.jpeg',
+                    '../media/travel/sabah_7.jpeg', '../media/travel/sabah_9.jpeg', '../media/travel/sabah_10.jpeg',
+                    '../media/travel/sabah_11.jpeg'
                 ]
             },
-            education: [
-                { degree: "Ph.D. in Materials Science", school: "Tsinghua University", years: "2025 - 2028" },
-                { degree: "M.S. in Materials Science", school: "Tsinghua University", years: "2022 - 2025" },
-                { degree: "B.S. in Mechanical Engineering", school: "Shanghai Jiao Tong University", years: "2018 - 2022" }
-            ],
-            presentations: [             
-                { title: " Simulation analysis and optimization of protective wall against hydrogen combustion from liquified hydrogen storage tank on the offshore launching platform (Oral)", venue: "European Hydrogen Energy Conference, Bilbao Spain", date: "Mar 2024" },
-                { title: "xxx", venue: "CEBE 2023, Shanghai, China", date: "Jul 2023" }
-            ],
-            honors_awards: [
-                { title: "Interview from China Daily", year: "2023" },
-                { title: "Outstanding Undergraduate Thesis", year: "2022" }
-            ],
-            // MODIFICATION 1: New intro field added to initialContent
-            personal_life_intro: "Welcome to my personal life and travel photo album! This page features photos from my business trips and conference journeys. Just to be clear, I am not from a rich family, most of the expenses are sponsored or reimbursed. Enjoy!", 
-            // Updated to include 'content' and 'figure_url_long'
-            personal_life: [
-                { 
-                    title: "Japan Kyoto", 
-                    content: "It was my first time in Japan (June 2025), and I was incredibly lucky to meet my idol, Jay Chou, while I was there!", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/japan1.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jay_chou.png","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/tokyo_japan.jpg"] 
-                },
-                { 
-                    title: "USA Silicon Valley", 
-                    content: "Photos from my trip to Silicon Valley, USA, during November 2024, invited by Stanford University.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/silicon_long.jpeg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/silicon_2.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/silicon_1.jpg"] 
-                },
-                { 
-                    title: "Malaysia Kota Kinabalu", 
-                    content: "Photos from my trip to Malaysia Kota Kinabalu, during January 2026, sharing the beauty of my motherland!", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_8.jpeg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_1.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_2.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_3.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_4.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_5.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_6.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_7.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_9.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_10.jpeg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/sabah_11.jpeg"] 
-                },
-                { 
-                    title: "China Jiuzhaigou", 
-                    content: "Photos from my trip to China Jiuzhaigou, during December 2024, really a beautiful amazing place!", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jiuzhaigou_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_me.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_1.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_2.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_3.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/jzg_4.jpg"] 
-                },
-                { 
-                    title: "China Datong", 
-                    content: "Photos from my trip to Datong China, during May 2025, a city with thousand years temple", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/datong_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/datong_me1.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/datong_me2.jpg"] 
-                },
-                { 
-                    title: "Spain Bilbao, Paris and Amsterdam", 
-                    content: "Photos from my trip to Spain, during March 2024, for conference (transfer in Paris and Amsterdam).", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/spain_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/paris_me.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/netherland_me.jpg"] 
-                },
-                { 
-                    title: "Italy Milan, Venice, Verona, Rome", 
-                    content: "Photos from my trip to Italy, during July 2023, two week business trip.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/italy_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/verona.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/italy_me.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/italy_pentagon.jpg"] 
-                },
-                { 
-                    title: "China Xian, Luoyang", 
-                    content: "Photos from my trip to China Xian, Luoyang, during December 2023. Didnt take much photo, unfortunately, I was sick during my travel.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/xian_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/xian_1.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/xian_2.jpg"] 
-                },
-                { 
-                    title: "China Zhangjiajie", 
-                    content: "Photos from my trip to China Zhangjiajie, during December 2022 till January 2023.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_1.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_2.jpg",
-                            "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_3.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_4.jpg",
-                            "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/zhangjiajie_5.jpg"] 
-                },
-                { 
-                    title: "China Yunnan", 
-                    content: "Photos from my trip to China, Yunnan province, during December 2023.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/yn_1.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/yn_2.jpg"] 
-                },
-                { 
-                    title: "UK London", 
-                    content: "Photos from my trip to London , UK, during July 2022, one week business trip.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_stone_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_big_ben.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_me.jpg"] 
-                },
-                { 
-                    title: "Germany Frankfurt, Aachen", 
-                    content: "Photos from my trip to China Zhangjiajie, during January 2020 (fortunately, before lockdown), and it was my first time to Europe!.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_stone_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_big_ben.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/uk_me.jpg"] 
-                },
-                { 
-                    title: "China Chaozhou", 
-                    content: "Photos from my trip to China Chaozhou, during March 2025.", 
-                    figure_url_long: "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/chaozhou_long.jpg", 
-                    images: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/chaozhou_1.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/chaozhou_2.jpg","https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/chaozhou_3.jpg"] 
-                }
-            ],
-            gallery_albums: [
-                { title: "Amazing Nature", type: "photo", items: ["https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/yiheyuan.jpeg", "https://raw.githubusercontent.com/puachenglin/chenglinpua/main/media/travel/me.jpeg"] },
-                { 
-                    title: "3D Atomic Objects", 
-                    type: "video", 
-                    items: [
-                        { url: "https://www.youtube.com/watch?v=Fw7JEITqc58", subtitle: "Poly-Si" },
-                        { url: "https://www.youtube.com/watch?v=3PXx0CkF7Fc", subtitle: "Lunar Soil" }
-                    ] 
-                }
-            ],
-            // Updated to include 'content'
-            articles: [
-                { 
-                    title: "Digital Sweatshops in the AI Era", 
-                    content: "A detailed analysis of the ethical implications and socio-economic changes brought about by the increasing use of AI in labor markets, particularly in data annotation and content moderation.", 
-                    source: "Lianhe Zaobao, Singapore", 
-                    link: "https://www.zaobao.com.sg/forum/views/story20250919-7535380" 
-                },
-                { 
-                    title: "The Gambler's Fallacy", 
-                    content: "Exploring the psychological biases and mathematical misunderstandings behind the gambler's fallacy and how it influences everyday decision-making.", 
-                    source: "Sin Chew Daily, Malaysia", 
-                    link: "https://www.sinchew.com.my/news/20210320/supplement/3144313" 
-                }
-            ],
-            social_links: [
-                { name: "ResearchGate", url: "https://www.researchgate.net/profile/Pua-Chenglin/" },
-                { name: "Google Scholar", url: "https://scholar.google.com/citations?user=OSv_Bm4AAAAJ&hl=en/" },
-                { name: "YouTube", url: "https://www.youtube.com/@AtomiMuseum/" },
-                { name: "BiliBili", url: "https://space.bilibili.com/3493105227533275/" },
-            ]
-        };
-
-        // ====================================================================
-        // SHARED UI FUNCTIONS (Copied from researchindex.html)
-        // ====================================================================
-
-        function toggleEditMode(enable) {
-            isEditMode = enable;
-            const toggleButton = document.getElementById('edit-mode-toggle');
-            const editableElements = document.querySelectorAll('.content-editable-field');
-
-            if (isEditMode) {
-                toggleButton.textContent = 'Exit Edit Mode';
-                toggleButton.classList.remove('bg-white', 'text-gray-800');
-                toggleButton.classList.add('bg-red-500', 'text-white');
-                editableElements.forEach(el => {
-                    el.setAttribute('contenteditable', 'true');
-                    el.style.cursor = 'text';
-                });
-                const configButton = document.createElement('button');
-                configButton.id = 'config-btn';
-                configButton.innerHTML = '⚙️ Config';
-                configButton.className = 'px-4 py-2 text-sm font-medium rounded-full bg-yellow-400 text-gray-900 hover:bg-yellow-500 transition duration-150 shadow-md ml-4';
-                configButton.onclick = () => document.getElementById('config-modal').classList.remove('hidden');
-                document.getElementById('edit-mode-toggle').parentElement.appendChild(configButton);
-
-            } else {
-                toggleButton.textContent = 'Enable Edit Mode';
-                toggleButton.classList.add('bg-white', 'text-gray-800');
-                toggleButton.classList.remove('bg-red-500', 'text-white');
-                editableElements.forEach(el => {
-                    el.removeAttribute('contenteditable');
-                    el.style.cursor = 'default';
-                });
-                const configBtn = document.getElementById('config-btn');
-                if (configBtn) configBtn.remove();
-                saveContent();
+            {
+                title: 'China Jiuzhaigou',
+                content: 'Photos from my trip to China Jiuzhaigou, during December 2024, really a beautiful amazing place!',
+                figure: '../media/travel/jiuzhaigou_long.jpg',
+                images: ['../media/travel/jzg_me.jpg', '../media/travel/jzg_1.jpg', '../media/travel/jzg_2.jpg', '../media/travel/jzg_3.jpg', '../media/travel/jzg_4.jpg']
+            },
+            {
+                title: 'China Datong',
+                content: 'Photos from my trip to Datong China, during May 2025, a city with thousand years temple',
+                figure: '../media/travel/datong_long.jpg',
+                images: ['../media/travel/datong_me1.jpg', '../media/travel/datong_me2.jpg']
+            },
+            {
+                title: 'Spain Bilbao, Paris and Amsterdam',
+                content: 'Photos from my trip to Spain, during March 2024, for conference (transfer in Paris and Amsterdam).',
+                figure: '../media/travel/spain_long.jpg',
+                images: ['../media/travel/paris_me.jpg', '../media/travel/netherland_me.jpg']
+            },
+            {
+                title: 'Italy Milan, Venice, Verona, Rome',
+                content: 'Photos from my trip to Italy, during July 2023, two week business trip.',
+                figure: '../media/travel/italy_long.jpg',
+                images: ['../media/travel/verona.jpg', '../media/travel/italy_me.jpg', '../media/travel/italy_pentagon.jpg']
+            },
+            {
+                title: 'China Xian, Luoyang',
+                content: 'Photos from my trip to China Xian, Luoyang, during December 2023. Didnt take much photo, unfortunately, I was sick during my travel.',
+                figure: '../media/travel/xian_long.jpg',
+                images: ['../media/travel/xian_1.jpg', '../media/travel/xian_2.jpg']
+            },
+            {
+                title: 'China Zhangjiajie',
+                content: 'Photos from my trip to China Zhangjiajie, during December 2022 till January 2023.',
+                figure: '../media/travel/zhangjiajie_long.jpg',
+                images: [
+                    '../media/travel/zhangjiajie_1.jpg', '../media/travel/zhangjiajie_2.jpg',
+                    '../media/travel/zhangjiajie_3.jpg', '../media/travel/zhangjiajie_4.jpg',
+                    '../media/travel/zhangjiajie_5.jpg'
+                ]
+            },
+            {
+                title: 'China Yunnan',
+                content: 'Photos from my trip to China, Yunnan province, during December 2023.',
+                figure: '../media/travel/yn_1.jpg',
+                images: ['../media/travel/yn_2.jpg']
+            },
+            {
+                title: 'UK London',
+                content: 'Photos from my trip to London , UK, during July 2022, one week business trip.',
+                figure: '../media/travel/uk_stone_long.jpg',
+                images: ['../media/travel/uk_big_ben.jpg', '../media/travel/uk_me.jpg']
+            },
+            {
+                title: 'Germany Frankfurt, Aachen',
+                content: 'Photos from my trip to China Zhangjiajie, during January 2020 (fortunately, before lockdown), and it was my first time to Europe!.',
+                figure: '../media/travel/uk_stone_long.jpg',
+                images: ['../media/travel/uk_big_ben.jpg', '../media/travel/uk_me.jpg']
+            },
+            {
+                title: 'China Chaozhou',
+                content: 'Photos from my trip to China Chaozhou, during March 2025.',
+                figure: '../media/travel/chaozhou_long.jpg',
+                images: ['../media/travel/chaozhou_1.jpg', '../media/travel/chaozhou_2.jpg', '../media/travel/chaozhou_3.jpg']
+            },
+            {
+                title: 'Beijing and Everyday Places',
+                content: 'Small ordinary scenes around life and study, including places near Beijing and Tsinghua days.',
+                figure: '../media/travel/yiheyuan.jpeg',
+                images: ['../media/travel/me.jpeg']
             }
-        }
-        
-        function renderProfileSidebar(data) {
-            const profileContainer = document.getElementById('profile-sidebar-content');
-            const profileImageUrl = "https://placehold.co/150x150/1D4ED8/FFFFFF?text=CP"; 
-            const profileName = data.profile?.name || initialContent.profile.name;
-            const profileTitle = data.profile?.title || initialContent.profile.title;
+        ];
 
-            profileContainer.innerHTML = `
-                <div class="text-center">
-                    <img src="${profileImageUrl}" alt="${profileName} Profile Picture" 
-                             class="w-24 h-24 rounded-full mx-auto object-cover mb-4 shadow-md" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/1D4ED8/FFFFFF?text=CP';" />
-                    
-                    <h3 class="text-xl font-bold mb-1 content-editable-field" data-key="profile.name">
-                        ${profileName}
-                    </h3>
-                    <p class="text-sm text-gray-600 mb-4 content-editable-field" data-key="profile.title">
-                        ${profileTitle}
-                    </p>
-
-                    <div class="space-y-3 pt-4 border-t border-gray-100">
-                        ${data.social_links.map(link => {
-                            if (['Google Scholar', 'ResearchGate', 'YouTube', 'BiliBili'].includes(link.name)) {
-                                return `
-                                    <a href="${link.url}" target="_blank" class="flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900 transition duration-150">
-                                        ${link.name} &rarr;
-                                    </a>
-                                `;
-                            }
-                            return '';
-                        }).join('')}
-                    </div>
-                </div>
-            `;
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
         }
 
-        function renderSocialLinks(data) {
-            const socialContainer = document.getElementById('social-links-container');
-            socialContainer.innerHTML = data.social_links.map((link, i) => `
-                <a href="${link.url}" target="_blank" class="text-white hover:text-opacity-80 transition duration-150 text-lg font-medium"
-                   id="social-${i}-name" data-key="social_links[${i}].name">
-                    ${link.name}
+        function buildViewerUrl(src, title) {
+            const url = new URL('../gallery/viewer.html', window.location.href);
+            url.searchParams.set('src', src);
+            url.searchParams.set('title', title);
+            return url.toString();
+        }
+
+        function imageTile(src, title, className, eager) {
+            return `
+                <a class="photo-tile ${className}" href="${buildViewerUrl(src, title)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(title)}">
+                    <img src="${src}" alt="${escapeHtml(title)}" loading="${eager ? 'eager' : 'lazy'}">
                 </a>
-                <span class="text-white hidden">
-                    URL (Edit Mode): <span class="content-editable-field break-all" data-key="social_links[${i}].url">${link.url}</span>
-                </span>
-            `).join('<span class="text-white">|</span>');
-        }
-
-        async function saveContent() {
-            if (!db || !userId) return console.error("Database or User ID not initialized for saving.");
-
-            const updatedContent = JSON.parse(JSON.stringify(initialContent));
-            const editableElements = document.querySelectorAll('.content-editable-field');
-
-            editableElements.forEach(el => {
-                const key = el.dataset.key;
-                if (!key) return;
-
-                const value = el.textContent.trim();
-
-                const setNestedProperty = (obj, path, val) => {
-                    const parts = path.match(/[^.\[\]]+/g);
-                    let current = obj;
-                    for (let i = 0; i < parts.length; i++) {
-                        const part = parts[i];
-                        if (i === parts.length - 1) {
-                            if (path.includes('.images') || path.includes('.items')) {
-                                current[part] = val.split(',').map(s => s.trim()).filter(s => s.length > 0);
-                            } else {
-                                current[part] = val;
-                            }
-                            return;
-                        }
-
-                        let nextPart = parts[i + 1];
-                        if (!current[part]) {
-                            if (!isNaN(parseInt(nextPart))) {
-                                current[part] = [];
-                            } else {
-                                current[part] = {};
-                            }
-                        }
-                        current = current[part];
-                    }
-                };
-                setNestedProperty(updatedContent, key, value);
-            });
-
-            try {
-                await setDoc(doc(db, CONTENT_PATH), updatedContent);
-                console.log("Website content saved successfully!");
-            } catch (error) {
-                console.error("Error saving content to Firestore:", error);
-                console.warn("Failed to save content. Check the console for details.");
-            }
-        }
-
-        function applyThemeColor(hexColor) {
-            themeColorHex = hexColor;
-            const style = document.documentElement.style;
-            style.setProperty('--theme-color-500', hexColor);
-            style.setProperty('--theme-color-600', hexColor);
-            style.setProperty('--theme-color-700', hexColor);
-            style.setProperty('--theme-color-800', hexColor);
-            document.getElementById('color-picker').value = hexColor;
-        }
-
-        async function saveThemeColor() {
-            const newColor = document.getElementById('color-picker').value;
-            applyThemeColor(newColor);
-            document.getElementById('config-modal').classList.add('hidden');
-
-            if (db && userId) {
-                try {
-                    await setDoc(doc(db, CONFIG_PATH(userId)), { themeColor: newColor }, { merge: true });
-                    console.log("Theme color saved successfully!");
-                } catch (error) {
-                    console.error("Error saving theme color:", error);
-                }
-            }
-        }
-        
-        // ====================================================================
-        // FULL CONTENT RENDER FUNCTION (PERSONAL)
-        // ====================================================================
-
-        function renderPersonalFull(data) {
-            const personalSection = document.getElementById('personal-section');
-            // MODIFICATION 1: Fetch introduction text
-            const introText = data.personal_life_intro || initialContent.personal_life_intro; 
-
-            personalSection.innerHTML = `
-                <h2 class="text-4xl font-bold mb-10 text-center" style="color: var(--theme-color-700, #3730a3);">✈️ Personal Life & Travels</h2>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg mb-16">
-                    <p class="text-lg text-gray-700 leading-relaxed content-editable-field" data-key="personal_life_intro">
-                        ${introText}
-                    </p>
-                </div>
-                <div class="space-y-16" id="personal-life-memories">
-                    ${(data.personal_life || []).map((memory, i) => `
-                        <div class="bg-white p-8 rounded-xl shadow-xl"> 
-                            <h4 class="text-3xl font-bold mb-4 content-editable-field" style="color: var(--theme-color-600, #4f46e5);"
-                                id="personal-life-${i}-title" data-key="personal_life[${i}].title">
-                                ${memory.title}
-                            </h4>
-
-                            ${memory.figure_url_long ? `
-                                <div class="mb-6">
-                                    <div class="figure-longstyle w-full rounded-lg overflow-hidden shadow-xl magnify-on-hover">
-                                        <img src="${memory.figure_url_long}" alt="${memory.title} long-style figure" 
-                                             onerror="this.onerror=null; this.src='https://placehold.co/1200x300/1D4ED8/FFFFFF?text=TRAVEL+LONGSTYLE+FIGURE';" />
-                                    </div>
-                                    <p class="mt-2 text-sm text-gray-500 hidden">
-                                        Figure URL: <span class="content-editable-field break-all" data-key="personal_life[${i}].figure_url_long">${memory.figure_url_long || ''}</span>
-                                    </p>
-                                </div>
-                            ` : ''}
-
-                            <p class="text-gray-700 leading-relaxed mb-6 content-editable-field min-h-[50px]"
-                                id="personal-life-${i}-content" data-key="personal_life[${i}].content">
-                                ${memory.content}
-                            </p>
-                            
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6 border-t pt-4 border-gray-100">
-    ${(memory.images || []).map(url => `
-        <a href="${url}" target="_blank" rel="noopener noreferrer" class="block">
-            <img src="${url}" alt="${memory.title} media" class="w-full h-auto object-cover aspect-square rounded-lg shadow-lg magnify-on-hover transition duration-300"
-                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/EF4444/FFFFFF?text=Media+Load+Error';" />
-        </a>
-    `).join('')}
-</div>
-                            <p class="mt-4 text-sm text-gray-500 hidden">
-                                Image URLs (Edit Mode, Comma-separated): <span class="content-editable-field break-all" data-key="personal_life[${i}].images">${(memory.images || []).join(', ')}</span>
-                            </p>
-                        </div>
-                    `).join('')}
-                </div>
             `;
         }
 
+        function renderAlbums() {
+            const container = document.getElementById('album-list');
+            container.innerHTML = albums.map((album, index) => {
+                const title = album.title;
+                const imageGrid = album.images.map((src, imageIndex) =>
+                    imageTile(src, `${title} photo ${imageIndex + 1}`, 'photo-square', index === 0 && imageIndex < 2)
+                ).join('');
 
-        // ====================================================================
-        // PAGE INITIALIZATION (Specific to personal/index.html)
-        // ====================================================================
-
-        function initPage(data) {
-            if (!data) data = initialContent; 
-            
-            // 1. Render Global Components
-            renderProfileSidebar(data); 
-            renderSocialLinks(data);
-
-            // 2. Render only the FULL content for this page
-            document.getElementById('personal-section').classList.remove('hidden');
-            renderPersonalFull(data);
-            
-            // 3. Hide loading and apply edit mode
-            document.getElementById('loading-indicator').classList.add('hidden');
-            if (isEditMode) {
-                document.querySelectorAll('.content-editable-field').forEach(el => {
-                    el.setAttribute('contenteditable', 'true');
-                    el.parentElement.classList.remove('hidden'); // Show hidden link fields
-                });
-            }
-        }
-        
-        // ====================================================================
-        // FIREBASE & APP SETUP (Copied from researchindex.html)
-        // ====================================================================
-
-        async function initializeFirebase() {
-            try {
-                if (Object.keys(firebaseConfig).length === 0) {
-                    throw new Error("Firebase configuration is missing or empty.");
-                }
-
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-
-                if (initialAuthToken) {
-                    await signInWithCustomToken(auth, initialAuthToken);
-                } else {
-                    await signInAnonymously(auth);
-                }
-
-                onAuthStateChanged(auth, (user) => {
-                    userId = user ? user.uid : null;
-                    document.getElementById('user-id-display').textContent = userId || 'N/A';
-
-                    onSnapshot(doc(db, CONTENT_PATH), (docSnap) => {
-                        const content = docSnap.exists() ? docSnap.data() : initialContent;
-                        initPage(content); 
-                        if (!docSnap.exists()) {
-                            setDoc(doc(db, CONTENT_PATH), initialContent).catch(e => console.error("Error writing initial content:", e));
-                        }
-                    }, (error) => {
-                        console.error("Error listening to public content:", error);
-                        initPage(initialContent);
-                    });
-
-                    if (userId) {
-                        onSnapshot(doc(db, CONFIG_PATH(userId)), (docSnap) => {
-                            if (docSnap.exists() && docSnap.data().themeColor) {
-                                applyThemeColor(docSnap.data().themeColor);
-                            } else {
-                                applyThemeColor(themeColorHex); 
-                            }
-                        }, (error) => {
-                            console.warn("Could not load private settings, using default theme.", error);
-                            applyThemeColor(themeColorHex);
-                        });
-                    }
-                });
-
-                document.getElementById('edit-mode-toggle').addEventListener('click', () => {
-                    if (userId) {
-                        toggleEditMode(!isEditMode);
-                    } else {
-                        console.warn("Cannot enable Edit Mode. Authentication failed or user is not recognized as the owner.");
-                    }
-                });
-
-            } catch (error) {
-                document.getElementById('loading-indicator').innerHTML = `
-                    <p class="text-red-600 text-lg">Error Initializing Firebase:</p>
-                    <p class="text-red-500 text-sm mt-2">The application could not load its content database. Please check console for details.</p>
+                return `
+                    <article class="album-card rounded-2xl p-6 sm:p-8 lg:p-10">
+                        <div class="mb-6 flex items-start justify-between gap-6">
+                            <h2 class="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">${escapeHtml(title)}</h2>
+                            <span class="album-number text-5xl font-black">${String(index + 1).padStart(2, '0')}</span>
+                        </div>
+                        ${imageTile(album.figure, `${title} long figure`, 'long-figure mb-6', index === 0)}
+                        <p class="mb-6 max-w-5xl text-lg leading-8 text-slate-700">${escapeHtml(album.content)}</p>
+                        <div class="album-grid">${imageGrid}</div>
+                    </article>
                 `;
-                console.error("Firebase initialization failed:", error);
-                initPage(initialContent);
-            }
+            }).join('');
         }
-        
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        initializeFirebase();
-        window.saveThemeColor = saveThemeColor;
-        window.addEventListener('beforeunload', () => { if (isEditMode) { saveContent(); } });
+
+        renderAlbums();
     </script>
 </body>
 </html>
