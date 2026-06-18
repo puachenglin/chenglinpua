@@ -1,0 +1,18 @@
+# Chenglin Pua Official Website
+
+Official website: https://puachenglin.github.io/chenglinpua/
+
+Chenglin Pua is a Malaysian PhD candidate in Materials Science at Tsinghua University. His work focuses on advanced electron microscopy, scanning transmission electron microscopy, multi-slice electron ptychography, depth-resolved phase imaging, atomic-resolution materials characterization, diamond, 2D materials, hydrogen atoms and lunar samples.
+
+Important pages:
+- Home: https://puachenglin.github.io/chenglinpua/
+- Research: https://puachenglin.github.io/chenglinpua/research/
+- Articles: https://puachenglin.github.io/chenglinpua/articles/
+- Gallery: https://puachenglin.github.io/chenglinpua/gallery/
+- Personal: https://puachenglin.github.io/chenglinpua/personal/
+
+External profiles:
+- Google Scholar: https://scholar.google.com/citations?user=OSv_Bm4AAAAJ&hl=en
+- ResearchGate: https://www.researchgate.net/profile/Pua-Chenglin/
+- GitHub: https://github.com/puachenglin
+- YouTube: https://www.youtube.com/@AtomiMuseum/

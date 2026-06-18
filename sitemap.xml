@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,7 +13,7 @@
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/research/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -35,7 +35,7 @@
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/articles/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -45,7 +45,7 @@
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/gallery/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -68,10 +68,18 @@
       <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/abf.png</image:loc>
       <image:title>ABF STEM microscopy image</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/tno_diff.png</image:loc>
+      <image:title>TNO diffraction and contrast image</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/gallery/atomic_edx_1.png</image:loc>
+      <image:title>Atomic elemental mapping image</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://puachenglin.github.io/chenglinpua/personal/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -89,6 +97,14 @@
     <image:image>
       <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/jiuzhaigou_long.jpg</image:loc>
       <image:title>Jiuzhaigou China landscape photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/me.jpeg</image:loc>
+      <image:title>Chenglin Pua portrait and travel photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://puachenglin.github.io/chenglinpua/media/travel/yiheyuan.jpeg</image:loc>
+      <image:title>Summer Palace Beijing travel photo by Chenglin Pua</image:title>
     </image:image>
   </url>
 </urlset>
